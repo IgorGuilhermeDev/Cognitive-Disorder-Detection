@@ -48,9 +48,9 @@ svm_model = SVC(kernel='linear', gamma='scale')
 svm_model.fit(X_train, y_train)
 
 y_pred_svm = svm_model.predict(X_test)
-print("Relatório:")
+print("Report:")
 print(classification_report(y_test, y_pred_svm))
-print("Precisão:", accuracy_score(y_test, y_pred_svm))
+print("Accuracy:", accuracy_score(y_test, y_pred_svm))
 
 with open('svm_model.pkl', 'wb') as model_file:
     pickle.dump(svm_model, model_file)
