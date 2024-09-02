@@ -7,8 +7,8 @@ from sklearn.svm import SVC
 from sklearn.metrics import classification_report, accuracy_score
 from sklearn.preprocessing import StandardScaler
 
-greater_equal_26_folder = "./greaterEquals26"
-lesser_26_folder = "./lesser26"
+greater_equal_26_folder = "../greaterEquals26"
+lesser_26_folder = "../lesser26"
 
 def load_images_from_folder(folder):
     images = []
@@ -52,10 +52,13 @@ print("Report:")
 print(classification_report(y_test, y_pred_svm))
 print("Accuracy:", accuracy_score(y_test, y_pred_svm))
 
-with open('svm_model.pkl', 'wb') as model_file:
+directory_path = '../model_and_scaler/'
+os.makedirs(directory_path, exist_ok=True)
+
+with open(os.path.join(directory_path, 'svm_model.pkl'), 'wb') as model_file:
     pickle.dump(svm_model, model_file)
 
-with open('scaler.pkl', 'wb') as scaler_file:
+with open(os.path.join(directory_path, 'scaler.pkl'), 'wb') as scaler_file:
     pickle.dump(scaler, scaler_file)
 
 print("Model and scaler have been saved as 'svm_model.pkl' and 'scaler.pkl'.")

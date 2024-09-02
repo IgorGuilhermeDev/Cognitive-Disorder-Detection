@@ -4,10 +4,10 @@ import tkinter as tk
 from tkinter import filedialog, Label
 from PIL import Image, ImageTk
 
-with open('svm_model.pkl', 'rb') as model_file:
+with open('../model_and_scaler/svm_model.pkl', 'rb') as model_file:
     svm_model = pickle.load(model_file)
 
-with open('scaler.pkl', 'rb') as scaler_file:
+with open('../model_and_scaler/scaler.pkl', 'rb') as scaler_file:
     scaler = pickle.load(scaler_file)
 
 def preprocess_image(image_path):

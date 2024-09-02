@@ -1,5 +1,5 @@
 #!/bin/bash
-destination_folder="./greaterEquals26"
+destination_folder="../greaterEquals26"
 mkdir -p "$destination_folder"
 
 for id in \
@@ -16,5 +16,5 @@ for id in \
     583491917066867608 817493990274505843 560901081308010111 55720714387058384 \
     447807127603920815
 do
-    cp -r "./images/$id" "$destination_folder/"
+    cp -r "../images/$id" "$destination_folder/"
 done

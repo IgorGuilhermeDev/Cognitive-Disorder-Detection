@@ -18,17 +18,6 @@ else
     exit 1
 fi
 
-PYTHON_VERSION=$($PYTHON -c 'import sys; print(sys.version_info.major)')
-if [ "$PYTHON_VERSION" -ne 3 ]; then
-    echo -e "${RED}Python version is not 3.x. Please install Python 3.x and try again.${NC}"
-    exit 1
-fi
-
-if ! command_exists pip3 && ! command_exists pip; then
-    echo -e "${RED}pip is not installed. Please install pip and try again.${NC}"
-    exit 1
-fi
-
 if ! $PYTHON -c "import tkinter" &> /dev/null; then
     echo -e "${YELLOW}tkinter is not installed.${NC}"
     read -p "Would you like to install tkinter? (y/n) " choice
@@ -53,26 +42,21 @@ if ! $PYTHON -c "import tkinter" &> /dev/null; then
     esac
 fi
 
-echo -e "${GREEN}Creating a virtual environment...${NC}"
-$PYTHON -m venv venv
+if [ -d "../venv" ]; then
+    echo "Virtual environment found. Activating..."
 
-echo -e "${GREEN}Activating the virtual environment...${NC}"
-source venv/bin/activate
-
-if [ -f "requirements.txt" ]; then
-    echo -e "${GREEN}Installing required packages...${NC}"
-    pip install -r requirements.txt
+    source ../venv/bin/activate
+    
+    if [ $? -eq 0 ]; then
+        echo "Virtual environment activated."
+    else
+        echo "Failed to activate the virtual environment."
+        exit 1
+    fi
 else
-    echo -e "${RED}requirements.txt not found. Please ensure the file exists.${NC}"
-    deactivate
+    echo "No virtual environment found. Please create a virtual environment first."
     exit 1
 fi
 
-echo -e "${GREEN}Executing moveGreater.sh...${NC}"
-bash moveGreater.sh
-
-echo -e "${GREEN}Executing moveLesser.sh...${NC}"
-bash moveLesser.sh
-
-echo -e "${GREEN}Executing main.py...${NC}"
-$PYTHON main.py
+echo -e "${GREEN}Starting application...${NC}"
+$PYTHON ../src/main.py
