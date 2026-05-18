@@ -1,5 +1,7 @@
 # Detecção-de-Desordem-Cognitiva
 
+[🇺🇸 English Version](README.md)
+
 ## Visão Geral
 
 **Detecção-de-Desordem-Cognitiva** é um projeto em Python 3.10 desenvolvido para detectar a probabilidade de um paciente ter um distúrbio cognitivo com base em seus desenhos. O projeto utiliza um modelo de aprendizado de máquina, especificamente uma Máquina de Vetores de Suporte (SVM), que foi treinado com dados de imagem para alcançar uma precisão de 73%. O foco principal é detectar comprometimento cognitivo, como Comprometimento Cognitivo Leve (CCL) ou outras desordens neurodegenerativas, usando desenhos analisados através do sistema de pontuação MoCA (Montreal Cognitive Assessment).
