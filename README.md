@@ -1,5 +1,7 @@
 # Cognitive-Disorder-Detection
 
+[🇧🇷 Versão em Português](README-pt-BR.md)
+
 ## Overview
 
 **Cognitive-Disorder-Detection** is a Python 3.10 project designed to detect the likelihood of a cognitive disorder in patients based on their drawings. The project utilizes a machine learning model, specifically a Support Vector Machine (SVM), which has been trained on image data to achieve a precision of 73%. The primary focus is on detecting cognitive impairment, such as Mild Cognitive Impairment (MCI) or other neurodegenerative disorders, using drawings analyzed through the MoCA (Montreal Cognitive Assessment) scoring system.
